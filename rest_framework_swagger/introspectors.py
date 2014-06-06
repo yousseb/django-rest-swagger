@@ -269,7 +269,7 @@ class BaseMethodIntrospector(object):
                     params.append({'paramType': 'query',
                                    'name': param[0].strip(),
                                    'description': param[1].strip(),
-                                   'dataType': ''})
+                                   'dataType': 'string'})
 
         return params
 
