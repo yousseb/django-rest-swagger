@@ -257,6 +257,19 @@ class BaseMethodIntrospector(object):
                                'name': param[0].strip(),
                                'description': param[1].strip(),
                                'dataType': ''})
+            if len(param) == 3:
+                paramtype = param[1].strip()
+                allowed_paramtypes = ['query', 'form', 'body', 'path']
+                if any(paramtype in s for s in allowed_paramtypes):
+                    params.append({'paramType': paramtype,
+                                   'name': param[0].strip(),
+                                   'description': param[1].strip(),
+                                   'dataType': ''})
+                else:
+                    params.append({'paramType': 'query',
+                                   'name': param[0].strip(),
+                                   'description': param[1].strip(),
+                                   'dataType': ''})
 
         return params
 
